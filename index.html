@@ -167,6 +167,10 @@
                     <input type="radio" name="property_type" value="Commercial Office" />
                     Commercial Office
                   </label>
+                  <label class="radio-option">
+                    <input type="radio" name="property_type" value="Development Site" />
+                    Development Site
+                  </label>
                 </div>
               </div>
 
@@ -189,25 +193,25 @@
                 <span class="field-error"></span>
               </div>
 
-              <div class="form-group">
+              <div class="form-group income-only">
                 <label for="total_units">Total Number of Units <span class="required">*</span></label>
                 <input type="number" id="total_units" name="total_units" placeholder="e.g. 24" min="1" required />
                 <span class="field-error"></span>
               </div>
 
-              <div class="form-group">
+              <div class="form-group income-only">
                 <label for="free_market_units">Free Market Units</label>
                 <input type="number" id="free_market_units" name="free_market_units" placeholder="e.g. 10" min="0" />
                 <span class="input-hint">Leave blank if none</span>
               </div>
 
-              <div class="form-group">
+              <div class="form-group income-only">
                 <label for="stabilized_units">Rent Stabilized Units</label>
                 <input type="number" id="stabilized_units" name="stabilized_units" placeholder="e.g. 14" min="0" />
                 <span class="input-hint">Leave blank if none</span>
               </div>
 
-              <div class="form-group full">
+              <div class="form-group full income-only">
                 <label>Does the building have a retail component? <span class="required">*</span></label>
                 <div class="radio-group" data-radio-group="retail_component">
                   <label class="radio-option">
@@ -221,9 +225,56 @@
                 </div>
               </div>
 
-              <div class="form-group full" id="retail-fields" style="display:none;">
+              <div class="form-group full income-only" id="retail-fields" style="display:none;">
                 <label for="retail_sqft">Retail Square Footage</label>
                 <input type="number" id="retail_sqft" name="retail_sqft" placeholder="e.g. 2,500" min="0" />
+              </div>
+
+              <!-- Development Site fields (Step 1) -->
+              <div class="form-group dev-only" style="display:none;">
+                <label for="zoning">Current Zoning Designation</label>
+                <input type="text" id="zoning" name="zoning" placeholder="e.g. R7A, C6-2, M1-2" />
+              </div>
+
+              <div class="form-group dev-only" style="display:none;">
+                <label for="lot_dimensions">Lot Dimensions (Width × Depth)</label>
+                <input type="text" id="lot_dimensions" name="lot_dimensions" placeholder="e.g. 25 × 100 ft" />
+              </div>
+
+              <div class="form-group full dev-only" style="display:none;">
+                <label>Is the property currently vacant? <span class="required">*</span></label>
+                <div class="radio-group" data-radio-group="is_vacant">
+                  <label class="radio-option">
+                    <input type="radio" name="is_vacant" value="Yes — Fully Vacant" />
+                    Yes — Fully Vacant
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="is_vacant" value="Partially Occupied" />
+                    Partially Occupied
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="is_vacant" value="Fully Occupied" />
+                    Fully Occupied
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group full dev-only" id="deliverable-field" style="display:none;">
+                <label>Can the property be delivered vacant?</label>
+                <div class="radio-group" data-radio-group="can_deliver_vacant">
+                  <label class="radio-option">
+                    <input type="radio" name="can_deliver_vacant" value="Yes" />
+                    Yes
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="can_deliver_vacant" value="No" />
+                    No
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="can_deliver_vacant" value="Unsure" />
+                    Unsure
+                  </label>
+                </div>
               </div>
 
             </div>
@@ -236,23 +287,78 @@
             </div>
           </div>
 
-          <!-- ── STEP 2: Financial Details ── -->
+          <!-- ── STEP 2: Financial / Site Details ── -->
           <div class="form-step" data-step="2">
-            <h4 class="form-step-title">Financial Details</h4>
+            <h4 class="form-step-title" id="step2-title">Financial Details</h4>
             <div class="form-grid">
 
-              <div class="form-group">
+              <div class="form-group income-only">
                 <label for="gross_income">Gross Annual Income <span class="required">*</span></label>
                 <input type="text" id="gross_income" name="gross_income" placeholder="e.g. 480,000" class="currency-input" required />
                 <span class="input-hint">Total rents + other income collected annually</span>
                 <span class="field-error"></span>
               </div>
 
-              <div class="form-group">
+              <div class="form-group income-only">
                 <label for="annual_expenses">Annual Operating Expenses <span class="required">*</span></label>
                 <input type="text" id="annual_expenses" name="annual_expenses" placeholder="e.g. 160,000" class="currency-input" required />
                 <span class="input-hint">Taxes, insurance, utilities, maintenance, mgmt</span>
                 <span class="field-error"></span>
+              </div>
+
+              <!-- Development Site fields (Step 2) -->
+              <div class="form-group full dev-only" style="display:none;">
+                <label>Have any air rights been transferred or sold from this property?</label>
+                <div class="radio-group" data-radio-group="air_rights_transferred">
+                  <label class="radio-option"><input type="radio" name="air_rights_transferred" value="Yes" /> Yes</label>
+                  <label class="radio-option"><input type="radio" name="air_rights_transferred" value="No" /> No</label>
+                  <label class="radio-option"><input type="radio" name="air_rights_transferred" value="Unknown" /> Unknown</label>
+                </div>
+              </div>
+
+              <div class="form-group full dev-only" style="display:none;">
+                <label>Are there any antenna or rooftop equipment tenants?</label>
+                <div class="radio-group" data-radio-group="antenna_tenants">
+                  <label class="radio-option"><input type="radio" name="antenna_tenants" value="Yes" /> Yes</label>
+                  <label class="radio-option"><input type="radio" name="antenna_tenants" value="No" /> No</label>
+                  <label class="radio-option"><input type="radio" name="antenna_tenants" value="Unknown" /> Unknown</label>
+                </div>
+              </div>
+
+              <div class="form-group full dev-only" style="display:none;">
+                <label>Are there any easements on the property?</label>
+                <div class="radio-group" data-radio-group="easements">
+                  <label class="radio-option"><input type="radio" name="easements" value="Yes" /> Yes</label>
+                  <label class="radio-option"><input type="radio" name="easements" value="No" /> No</label>
+                  <label class="radio-option"><input type="radio" name="easements" value="Unknown" /> Unknown</label>
+                </div>
+              </div>
+
+              <div class="form-group full dev-only" style="display:none;">
+                <label>Are there rent-stabilized tenants in the building?</label>
+                <div class="radio-group" data-radio-group="has_stabilized">
+                  <label class="radio-option"><input type="radio" name="has_stabilized" value="Yes" /> Yes</label>
+                  <label class="radio-option"><input type="radio" name="has_stabilized" value="No" /> No</label>
+                  <label class="radio-option"><input type="radio" name="has_stabilized" value="Unknown" /> Unknown</label>
+                </div>
+              </div>
+
+              <div class="form-group full dev-only" style="display:none;">
+                <label>Any known environmental conditions or contamination?</label>
+                <div class="radio-group" data-radio-group="environmental">
+                  <label class="radio-option"><input type="radio" name="environmental" value="Yes" /> Yes</label>
+                  <label class="radio-option"><input type="radio" name="environmental" value="No" /> No</label>
+                  <label class="radio-option"><input type="radio" name="environmental" value="Unknown" /> Unknown</label>
+                </div>
+              </div>
+
+              <div class="form-group full dev-only" style="display:none;">
+                <label>Any landmark or historic district designation?</label>
+                <div class="radio-group" data-radio-group="landmark">
+                  <label class="radio-option"><input type="radio" name="landmark" value="Yes" /> Yes</label>
+                  <label class="radio-option"><input type="radio" name="landmark" value="No" /> No</label>
+                  <label class="radio-option"><input type="radio" name="landmark" value="Unknown" /> Unknown</label>
+                </div>
               </div>
 
               <div class="form-group">

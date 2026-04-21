@@ -51,6 +51,30 @@ if (hamburger && mobileMenu) {
   // Collect all form data across steps
   const data = {};
 
+  // ── Toggle income-only vs dev-only fields ───────────────
+  function toggleDevFields(isDev) {
+    form.querySelectorAll('.income-only').forEach(el => {
+      el.style.display = isDev ? 'none' : '';
+      el.querySelectorAll('[required]').forEach(input => {
+        if (isDev) { input.dataset.wasRequired = '1'; input.removeAttribute('required'); }
+        else if (input.dataset.wasRequired) { input.setAttribute('required', ''); }
+      });
+    });
+    form.querySelectorAll('.dev-only').forEach(el => {
+      // Keep deliverable-field hidden until is_vacant is answered
+      if (el.id === 'deliverable-field') return;
+      el.style.display = isDev ? '' : 'none';
+    });
+    if (!isDev) {
+      const df = document.getElementById('deliverable-field');
+      if (df) df.style.display = 'none';
+    }
+    const step2Title = document.getElementById('step2-title');
+    if (step2Title) step2Title.textContent = isDev ? 'Site Details' : 'Financial Details';
+    const step2Label = form.querySelector('.progress-step[data-step="2"] .step-label');
+    if (step2Label) step2Label.textContent = isDev ? 'Site Details' : 'Financials';
+  }
+
   // ── Radio-option buttons ─────────────────────────────────
   form.querySelectorAll('.radio-option').forEach(opt => {
     opt.addEventListener('click', () => {
@@ -68,6 +92,15 @@ if (hamburger && mobileMenu) {
         if (retailFields) {
           retailFields.style.display = input.value === 'yes' ? 'block' : 'none';
         }
+      }
+      // Toggle development site mode
+      if (name === 'property_type') {
+        toggleDevFields(input.value === 'Development Site');
+      }
+      // Show/hide deliverable-vacant question based on occupancy answer
+      if (name === 'is_vacant') {
+        const df = document.getElementById('deliverable-field');
+        if (df) df.style.display = input.value === 'Yes — Fully Vacant' ? 'none' : '';
       }
     });
   });
