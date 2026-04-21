@@ -194,7 +194,19 @@ img { max-width: 100%; display: block; }
 }
 .navbar-links a:hover { color: var(--lime); }
 
-.navbar-cta { margin-left: 8px; padding: 9px 20px; font-size: .88rem; }
+.navbar-cta {
+  margin-left: 8px;
+  padding: 9px 20px;
+  font-size: .88rem;
+  background: var(--green) !important;
+  border-color: var(--green) !important;
+  color: var(--white) !important;
+}
+.navbar-cta:hover {
+  background: var(--green-dark) !important;
+  border-color: var(--green-dark) !important;
+  box-shadow: 0 4px 16px rgba(19,149,94,.4) !important;
+}
 
 .hamburger {
   display: none;
