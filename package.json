@@ -1,0 +1,23 @@
+{
+  "name": "property-value-nyc",
+  "version": "1.0.0",
+  "description": "NYC Property Value - Commercial & Multi-Family Property Valuation",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcurly96/property-value-nyc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcurly96/property-value-nyc/issues"
+  },
+  "homepage": "https://github.com/jcurly96/property-value-nyc#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
