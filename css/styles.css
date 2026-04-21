@@ -416,7 +416,11 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 .valuation-section {
   padding: 100px 0;
-  background: var(--white);
+  background-color: var(--white);
+  background-image: url('../Graphic%20Designs/map_stroke=1_darkGreen.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 1167px auto;
 }
 
 .valuation-section .section-header { text-align: center; }
