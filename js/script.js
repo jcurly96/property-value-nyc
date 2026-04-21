@@ -2,6 +2,10 @@
    NYC Property Value — Main Script
    ============================================================ */
 
+// ── Always start at top of page ──────────────────────────────
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+
 // ── Navbar scroll effect ─────────────────────────────────────
 const navbar = document.querySelector('.navbar');
 if (navbar) {
