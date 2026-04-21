@@ -1,47 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nycpropertyvalue.com/</loc>
+    <loc>https://nycpropertyvalue.org/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nycpropertyvalue.com/articles</loc>
+    <loc>https://nycpropertyvalue.org/articles</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nycpropertyvalue.com/articles/how-to-value-multifamily-nyc</loc>
+    <loc>https://nycpropertyvalue.org/articles/how-to-value-multifamily-nyc</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nycpropertyvalue.com/articles/cap-rates-nyc-guide</loc>
+    <loc>https://nycpropertyvalue.org/articles/cap-rates-nyc-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nycpropertyvalue.com/articles/rent-stabilization-property-value</loc>
+    <loc>https://nycpropertyvalue.org/articles/rent-stabilization-property-value</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nycpropertyvalue.com/articles/selling-nyc-commercial-building</loc>
+    <loc>https://nycpropertyvalue.org/articles/selling-nyc-commercial-building</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nycpropertyvalue.com/articles/mixed-use-properties-nyc</loc>
+    <loc>https://nycpropertyvalue.org/articles/mixed-use-properties-nyc</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nycpropertyvalue.com/articles/nyc-office-building-valuation</loc>
+    <loc>https://nycpropertyvalue.org/articles/nyc-office-building-valuation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nycpropertyvalue.com/articles/nyc-development-site-potential</loc>
+    <loc>https://nycpropertyvalue.org/articles/nyc-development-site-potential</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
