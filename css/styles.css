@@ -1210,6 +1210,7 @@ img { max-width: 100%; display: block; }
   .form-progress { padding: 16px 20px; }
   .hero-stats { gap: 24px; flex-wrap: wrap; }
   .articles-grid { grid-template-columns: 1fr; }
+  .article-card-body > p { display: none; }
   .articles-header { flex-direction: column; align-items: flex-start; gap: 16px; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
