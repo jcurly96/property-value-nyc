@@ -325,6 +325,39 @@ img { max-width: 100%; display: block; }
 
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
+.hero-badge, #hero-headline, #hero-subtext {
+  transition: opacity .35s ease;
+}
+.hero-content.is-transitioning .hero-badge,
+.hero-content.is-transitioning #hero-headline,
+.hero-content.is-transitioning #hero-subtext {
+  opacity: 0;
+}
+
+.hero-dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.3);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.hero-dot:hover { background: rgba(255,255,255,.55); }
+
+.hero-dot.active {
+  background: var(--lime);
+  transform: scale(1.35);
+}
+
 .hero-stats {
   display: flex;
   gap: 44px;

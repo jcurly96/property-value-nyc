@@ -40,6 +40,83 @@ if (hamburger && mobileMenu) {
   });
 }
 
+// ── Hero headline carousel ────────────────────────────────────
+(function initHeroCarousel() {
+  const badge = document.getElementById('hero-badge');
+  const headline = document.getElementById('hero-headline');
+  const subtext = document.getElementById('hero-subtext');
+  const content = document.querySelector('.hero-content');
+  const dots = document.querySelectorAll('.hero-dot');
+  if (!badge || !headline || !subtext || !content || !dots.length) return;
+
+  const slides = [
+    {
+      badge: 'Development Sites',
+      headline: 'Does Your <em>NYC Property</em> Have Development Potential?',
+      subtext: "We specialize in uncovering hidden development value in NYC buildings — from unused FAR and rezoning upside to condo development sites and multifamily land value. Get a free analysis of what your property could be worth as a development site."
+    },
+    {
+      badge: 'Conversions',
+      headline: 'Does Your <em>NYC Property</em> Have Conversion Potential?',
+      subtext: "467-m is turning obsolete NYC office and commercial buildings into some of the city's most valuable residential conversions — with tax exemptions up to 90%. Find out if your building qualifies."
+    },
+    {
+      badge: 'Income Valuations',
+      headline: "What's the Value of My <em>NYC Property</em> Based on Its Income?",
+      subtext: "Get a professional, cap-rate-based valuation of your commercial, multi-family, or mixed-use building — using actual NOI and current market comparables across all five boroughs."
+    }
+  ];
+
+  let current = 0;
+  let timer = null;
+  const AUTO_MS = 6000;
+  const TRANSITION_MS = 350;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function render(index) {
+    const s = slides[index];
+    badge.textContent = s.badge;
+    headline.innerHTML = s.headline;
+    subtext.textContent = s.subtext;
+    dots.forEach((d, i) => {
+      const active = i === index;
+      d.classList.toggle('active', active);
+      d.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+
+  function goTo(index) {
+    if (index === current) return;
+    content.classList.add('is-transitioning');
+    setTimeout(() => {
+      current = index;
+      render(current);
+      content.classList.remove('is-transitioning');
+    }, TRANSITION_MS);
+  }
+
+  function next() { goTo((current + 1) % slides.length); }
+
+  function stopAuto() { if (timer) clearInterval(timer); }
+  function startAuto() {
+    if (prefersReducedMotion) return;
+    stopAuto();
+    timer = setInterval(next, AUTO_MS);
+  }
+
+  dots.forEach(d => {
+    d.addEventListener('click', () => {
+      goTo(parseInt(d.dataset.slide, 10));
+      startAuto();
+    });
+  });
+
+  content.addEventListener('mouseenter', stopAuto);
+  content.addEventListener('mouseleave', startAuto);
+
+  startAuto();
+})();
+
 // ── Multi-step Valuation Form ────────────────────────────────
 (function initValuationForm() {
   const form = document.getElementById('valuation-form');
