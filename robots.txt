@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nycpropertyvalue.org/sitemap.xml
