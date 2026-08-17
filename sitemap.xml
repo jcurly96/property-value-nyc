@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nycpropertyvalue.org/</loc>
@@ -8,6 +8,41 @@
   <url>
     <loc>https://nycpropertyvalue.org/articles</loc>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nycpropertyvalue.org/articles/nyc-development-site-potential</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nycpropertyvalue.org/articles/how-to-value-a-development-site-nyc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nycpropertyvalue.org/articles/multifamily-vs-development-site-nyc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nycpropertyvalue.org/articles/467-m-tax-incentive-nyc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nycpropertyvalue.org/articles/485-x-tax-incentive-nyc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nycpropertyvalue.org/articles/nyc-rezoning-development-potential</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://nycpropertyvalue.org/articles/nyc-condo-development-land-market</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
@@ -37,11 +72,6 @@
   </url>
   <url>
     <loc>https://nycpropertyvalue.org/articles/nyc-office-building-valuation</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nycpropertyvalue.org/articles/nyc-development-site-potential</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
