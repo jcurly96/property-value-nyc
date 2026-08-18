@@ -339,6 +339,49 @@ if (hamburger && mobileMenu) {
   updateUI();
 })();
 
+// ── Reading-time valuation popup (article pages only) ────────
+(function initReadingPopup() {
+  const articleBody = document.querySelector('.article-body');
+  const overlay = document.getElementById('valuation-popup-overlay');
+  if (!articleBody || !overlay) return;
+
+  const STORAGE_KEY = 'nycpv_popup_shown';
+  if (sessionStorage.getItem(STORAGE_KEY)) return;
+
+  function showPopup() {
+    if (sessionStorage.getItem(STORAGE_KEY)) return;
+    overlay.classList.add('active');
+    sessionStorage.setItem(STORAGE_KEY, '1');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hidePopup() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  const timer = setTimeout(showPopup, 10000);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) hidePopup();
+  });
+
+  const closeBtn = overlay.querySelector('.valuation-popup-close');
+  if (closeBtn) closeBtn.addEventListener('click', hidePopup);
+
+  const dismissLink = overlay.querySelector('.valuation-popup-dismiss');
+  if (dismissLink) dismissLink.addEventListener('click', (e) => { e.preventDefault(); hidePopup(); });
+
+  const ctaBtn = overlay.querySelector('.valuation-popup-cta');
+  if (ctaBtn) ctaBtn.addEventListener('click', hidePopup);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hidePopup();
+  });
+
+  window.addEventListener('beforeunload', () => clearTimeout(timer));
+})();
+
 // ── Smooth scroll for CTA buttons ───────────────────────────
 document.querySelectorAll('a[href="#valuation"]').forEach(btn => {
   btn.addEventListener('click', e => {
