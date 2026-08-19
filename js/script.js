@@ -360,7 +360,7 @@ if (hamburger && mobileMenu) {
     document.body.style.overflow = '';
   }
 
-  const timer = setTimeout(showPopup, 10000);
+  const timer = setTimeout(showPopup, 5000);
 
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) hidePopup();
