@@ -1279,6 +1279,68 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
+   ARTICLE SIDEBAR LINKS (Related Resources + Quick Links)
+   ============================================================ */
+.article-sidebar-links {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.sidebar-panel {
+  background: var(--sage-light);
+  border: 1px solid var(--gray-light);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+
+.sidebar-panel h4 {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--sage);
+}
+
+.sidebar-panel ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-panel li { line-height: 1.4; }
+
+.sidebar-panel a {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--dark);
+  transition: color .2s;
+}
+
+.sidebar-panel a::before {
+  content: '→';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+
+.sidebar-panel a:hover { color: var(--green); }
+.sidebar-panel a:hover::before { transform: translateX(3px); }
+
+@media (max-width: 640px) {
+  .article-sidebar-links { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    MOBILE MENU
    ============================================================ */
 .mobile-menu {
